@@ -17,6 +17,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type = "CUSTOM"
     ami_id   = data.aws_ssm_parameter.eks_al2023_ami.value
+    wait_for_nodes = false
 
   }
 
