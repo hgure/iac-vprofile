@@ -17,7 +17,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type = "CUSTOM"
     ami_id   = data.aws_ssm_parameter.eks_al2023_ami.value
-    wait_for_nodes = false
+   
 
   }
 
@@ -30,6 +30,7 @@ module "eks" {
       min_size     = 1
       max_size     = 3
       desired_size = 2
+      wait_for_nodes = false
     }
 
     two = {
@@ -40,6 +41,7 @@ module "eks" {
       min_size     = 1
       max_size     = 2
       desired_size = 1
+      wait_for_nodes = false
     }
   }
 }
