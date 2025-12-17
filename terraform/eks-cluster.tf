@@ -1,3 +1,8 @@
+# Fetch the AL2023 EKS-optimized AMI for Kubernetes 1.32
+data "aws_ssm_parameter" "eks_al2023_ami" {
+  name = "/aws/service/eks/optimized-ami/1.32/amazon-linux-2023/x86_64/standard/recommended/image_id"
+}
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.19.1"
