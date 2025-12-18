@@ -1,6 +1,6 @@
 # Fetch the AL2023 EKS-optimized AMI for Kubernetes 1.32
 data "aws_ssm_parameter" "eks_al2023_ami" {
-  name = "/aws/service/eks/optimized-ami/1.32/amazon-linux-2023/x86_64/standard/recommended/image_id"
+  name = "/aws/service/eks/optimized-ami/1.33/amazon-linux-2023/x86_64/standard/recommended/image_id"
 }
 
 module "eks" {
@@ -17,7 +17,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type = "CUSTOM"
     ami_id   = data.aws_ssm_parameter.eks_al2023_ami.value
-   
+
 
   }
 
@@ -30,7 +30,6 @@ module "eks" {
       min_size     = 1
       max_size     = 3
       desired_size = 2
-      wait_for_nodes = false
     }
 
     two = {
@@ -41,7 +40,6 @@ module "eks" {
       min_size     = 1
       max_size     = 2
       desired_size = 1
-      wait_for_nodes = false
     }
   }
 }
