@@ -19,7 +19,7 @@ env:
     #Storage for Terraform State
     BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
     AWS_REGION: "us-east-1"
-    EKS_CLUSTER_NAME: "nomadapp-eks"
+    EKS_CLUSTER_NAME: "nomadops-eks"
 
 jobs:
     terraform:
